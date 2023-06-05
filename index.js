@@ -16,10 +16,13 @@ const PDF = {
     let enderecoImovel = document.getElementById('enderecoImovel').value.toUpperCase()
     let valorRs = document.getElementById('valorRs').value.toUpperCase()
     let valorPorExtenso = document.getElementById('valorPorExtenso').value.toUpperCase()
-    let mesesPagos = document.getElementById('mesesPagos').value.toUpperCase()
     let proprietario = document.getElementById('proprietario').value.toUpperCase()
     let cidade = document.getElementById('cidade').value.toUpperCase()
     let data = document.getElementById('data').value.toUpperCase()
+    let cpfLocador = document.getElementById('cpfLocador').value.toUpperCase()
+    let rgLocador = document.getElementById('rgLocador').value.toUpperCase()
+    let cpfLocatario = document.getElementById('cpfLocatario').value.toUpperCase()
+    let rgLocatario = document.getElementById('rgLocatario').value.toUpperCase()
 
     if (document.getElementById('ruaImovel').selected) {
       enderecoRuaOuAvenidaImovel = 'RUA: '
@@ -37,7 +40,10 @@ const PDF = {
       cidade,
       enderecoRuaOuAvenidaImovel,
       data,
-      mesesPagos
+      cpfLocador,
+      rgLocador,
+      cpfLocatario,
+      rgLocatario
     }
   }
 }
@@ -53,7 +59,7 @@ const createPDF = () => {
           margin: [0, 0, 0, 0],
         },
         {
-          text: 'RECIBO DE CAUÇÃO',
+          text: 'RECIBO DE ALUGUEL',
           fontSize: 18,
           alignment: 'center',
           margin: [0, 20, 0, 0],
@@ -61,7 +67,7 @@ const createPDF = () => {
         '\n',
 
         {
-          text: `EU, ${PDF.getFormData().nomeLocador}, RECEBI DO SR. ${PDF.getFormData().nomeLocatario} A IMPORTÂNCIA DE R$: ${PDF.getFormData().valorRs} (${PDF.getFormData().valorPorExtenso}), REFERENTE A ${PDF.getFormData().mesesPagos == 'UM' ? `${PDF.getFormData().mesesPagos} MÊS` : `${PDF.getFormData().mesesPagos} MESES`} DE CAUÇÃO DO IMÓVEL LOCALIZADO NA ${PDF.getFormData().enderecoRuaOuAvenidaImovel} ${PDF.getFormData().enderecoImovel}, DO PROPRIETÁRIO: ${PDF.getFormData().proprietario}.`,
+          text: `EU, ${PDF.getFormData().nomeLocador}, REGISTRADO(A) NO CPF: ${PDF.getFormData().cpfLocador} E RG: ${PDF.getFormData().rgLocador}, RECEBI DO SR.(A) ${PDF.getFormData().nomeLocatario} REGISTRADO(A) NO CPF: ${PDF.getFormData().cpfLocatario} E RG: ${PDF.getFormData().rgLocatario}, A IMPORTÂNCIA DE R$: ${PDF.getFormData().valorRs} (${PDF.getFormData().valorPorExtenso}), DO IMÓVEL LOCALIZADO NA ${PDF.getFormData().enderecoRuaOuAvenidaImovel} ${PDF.getFormData().enderecoImovel}, DO PROPRIETÁRIO(A): ${PDF.getFormData().proprietario}.`,
         },
         '\n', '\n',
 
@@ -70,7 +76,7 @@ const createPDF = () => {
           alignment: 'center',
         },
         '\n',
-        
+
         {
           text: `___________________________________\n${PDF.getFormData().nomeLocador}`,
           alignment: 'center',
