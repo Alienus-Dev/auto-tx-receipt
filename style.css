@@ -2,8 +2,15 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  padding: 0px 350px;
+  text-align: center;
 }
 
+@media (max-width: 1250px) {
+  body {
+    padding: 0px 40px;
+  }
+}
 .nomecima {
   font-family: "Poppins";
   color: rgb(0, 0, 0);
