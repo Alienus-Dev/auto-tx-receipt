@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="pdfmake/build/pdfmake.min.js"></script>
+    <script src="pdfmake/build/vfs_fonts.js"></script>
+    <title>Auto Recibo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="row">
+      <form>
+        <!--Locador-->
+        <label for="nomeLocatario" class="nomecima">
+          <b>Nome do Locador</b>
+        </label>
+        <input
+          id="nomeLocador"
+          class="inputUser"
+          placeholder="EX: Alda Maria Alves de Brito Pinto, corretora de imóveis, registrada no Creci: 15108"
+        />
+        <br />
+
+        <!--Locatário-->
+        <label for="nomeLocatario" class="nomecima">
+          <b>Nome do Locatário</b>
+        </label>
+        <input
+          id="nomeLocatario"
+          class="inputUser"
+          placeholder="EX: Hermes Barreto"
+        />
+        <br />
+
+        <!--Valor-->
+        <label for="valorRs" class="nomecima">
+          <b>Valor da Caução</b>
+        </label>
+        <input id="valorRs" class="inputUser" placeholder="EX: 500,00" />
+        <br />
+
+        <!--Valor por extenso-->
+        <label for="valorPorExtenso" class="nomecima">
+          <b>Valor da Caução por Extenso</b>
+        </label>
+        <input
+          id="valorPorExtenso"
+          class="inputUser"
+          placeholder="EX: Quinhentos Reais"
+        />
+        <br />
+
+        <!--Meses Pagos-->
+        <label for="valorPorExtenso" class="nomecima">
+          <b>Meses Pagos</b>
+        </label>
+        <input id="mesesPagos" class="inputUser" placeholder="EX: Dois" />
+        <br />
+
+        <!--Rua ou avenida-->
+        <label for="nomeLocador" class="nomecima">
+          <b>Imóvel Rua ou Avenida</b>
+        </label>
+        <select class="BUTTON2">
+          <option id="ruaImovel" class="BUTTON2" value="Rua">Rua</option>
+          <option id="avenidaImovel" class="BUTTON2" value="Avenida">
+            Avenida
+          </option>
+        </select>
+        <br /><br />
+
+        <!--Endereço imovel-->
+        <label for="enderecoImovel" class="nomecima">
+          <b>Endereço do Imóvel</b>
+        </label>
+        <input
+          id="enderecoImovel"
+          class="inputUser"
+          placeholder="EX: Padre Anchieta, N°:323, Bairro: Artur Alves, Seabra - BA, CEP: 46.900.000"
+        />
+        <br />
+
+        <!--Proprietario-->
+        <label for="proprietario" class="nomecima">
+          <b>Proprietario</b>
+        </label>
+        <input
+          id="proprietario"
+          class="inputUser"
+          placeholder="EX: Maria Flor Senna"
+        />
+        <br />
+
+        <!--Cidade-->
+        <label for="cidade" class="nomecima">
+          <b>Cidade</b>
+        </label>
+        <input
+          id="cidade"
+          class="inputUser"
+          placeholder="EX: Seabra"
+          required
+        />
+        <br />
+
+        <!--Data-->
+        <label for="data" class="nomecima">
+          <b>Data</b>
+        </label>
+        <input
+          type="text"
+          id="data"
+          class="inputUser"
+          placeholder="11 de março de 2023"
+        />
+        <br />
+
+        <!--Botão submit-->
+        <br /><br />
+        <input
+          id="submit"
+          type="button"
+          class="BUTTON"
+          value="Fazer Contrato"
+          onclick="{createPDF()}"
+        />
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
